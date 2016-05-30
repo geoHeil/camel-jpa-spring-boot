@@ -18,20 +18,22 @@ public class OrderRoute extends FatJarRouter {
         // use CXF-RS to setup the REST web service using the resource class
         // and use the simple binding style which is recommended to use
         from("cxfrs:http://localhost:8080?resourceClasses=camelinaction.RestOrderService&bindingStyle=SimpleConsumer&providers=#jsonProvider")
-            // call the route based on the operation invoked on the REST web service
-            .toD("direct:${header.operationName}");
+                // call the route based on the operation invoked on the REST web service
+                .toD("direct:${header.operationName}");
 
         // routes that implement the REST services
         from("direct:createOrder")
-            .bean("orderService", "createOrder");
+                .bean("orderService", "createOrder");
+//        .to("jpa: TODO persist entity");
 
         from("direct:getOrder")
-            .bean("orderService", "getOrder(${header.id})");
+                //        .to("jpa: TODO load saved entities");
+                .bean("orderService", "getOrder(${header.id})");
 
         from("direct:updateOrder")
-            .bean("orderService", "updateOrder");
+                .bean("orderService", "updateOrder");
 
         from("direct:cancelOrder")
-            .bean("orderService", "cancelOrder(${header.id})");
+                .bean("orderService", "cancelOrder(${header.id})");
     }
 }
