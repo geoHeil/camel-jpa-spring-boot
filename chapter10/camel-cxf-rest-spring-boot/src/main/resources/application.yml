@@ -2,9 +2,9 @@ spring:
   main:
     sources: camelinaction.OrderRoute
   datasource:
-      url: jdbc:postgresql://postgres/predictr
-      username: sql7120570
-      password: Kxd8nfuLlk
+      url: jdbc:postgresql://postgres/fooBarBaz
+      username: fooBarBaz
+      password: fooBarBaz
   jpa:
     hibernate:
       ddl-auto: update
