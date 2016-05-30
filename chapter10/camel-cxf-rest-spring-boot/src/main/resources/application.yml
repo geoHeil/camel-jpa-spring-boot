@@ -1,1 +1,11 @@
-spring.main.sources: camelinaction.OrderRoute
+spring:
+  main:
+    sources: camelinaction.OrderRoute
+  datasource:
+      url: jdbc:postgresql://postgres/predictr
+      username: sql7120570
+      password: Kxd8nfuLlk
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
